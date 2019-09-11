@@ -7,7 +7,7 @@ const HTML = document.querySelector('html');
 const images = document.querySelectorAll('img');
 const btns = document.querySelectorAll('.destination .btn');
 const aTags = document.querySelectorAll('nav a');
-const h2And4Tag = document.querySelectorAll('h2, h4');
+const h2And4Tags = document.querySelectorAll('h2, h4');
 const pTags = document.querySelectorAll('p');
 
 mainH1.addEventListener('mouseover', () => {
@@ -25,14 +25,15 @@ body.addEventListener('keydown', () => {
   body.style.background = rbgColor;
 });
 
+//WHEEL
 let scale = 1;
 for (let i = 0; i < images.length; i++) {
     images[i].addEventListener('wheel', (eventZoom) => {
     eventZoom.preventDefault();
     scale += eventZoom.deltaY * -0.01;
-// Restrict Scale
+// RESTRICT SCALE HERE
     scale = Math.min(Math.max(.125, scale), 4);
-// Apply Scale Transform
+// SCALE TRANSFORM
 images[i].style.transform = `scale(${scale})`;
   });
 };
@@ -54,10 +55,12 @@ for (let i = 0; i < btns.length; i++) {
   });
 };
 
+//LOAD
 body.addEventListener('load', () => {
   console.log('page is loaded');
 });
 
+//FOCUS
 for (let i = 0; i < aTags.length; i++) {
     aTags[i].addEventListener('focus', (lightgrayColor) => {
     lightgrayColor.target.style.background = 'lightgray';
@@ -68,7 +71,7 @@ HTML.addEventListener('resize', () => {
   console.log(`${window.innerHeight} + ${window.innerWidth}`)
 });
 
-h2And4Tag.forEach( h => {
+h2And4Tags.forEach( h => {
   h.addEventListener('mousemove', () => {
     let r = Math.floor(Math.random() * 256);
     let g = Math.floor(Math.random() * 256);
@@ -101,11 +104,12 @@ aTags.forEach(a => {
   });
 });
 
-mainNav.addEventListener("mouseover", (stuff) => {
-    stuff.stopPropagation();
+//MOUSEOVER
+mainNav.addEventListener("mouseover", (items) => {
+    items.stopPropagation();
   });
 
-
+//MOUSEOVER
 mainNav.addEventListener("mouseover", () => {
-    mainNav.style.color = 'green';
+    mainNav.style.color = 'ORANGE';
   });
